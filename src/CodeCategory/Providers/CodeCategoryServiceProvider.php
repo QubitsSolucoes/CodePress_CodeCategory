@@ -4,6 +4,8 @@ namespace CodePress\CodeCategory\Providers;
 
 
 use Illuminate\Support\ServiceProvider;
+use CodePress\CodeCategory\Repository\CategoryRepositoryInterface;
+use CodePress\CodeCategory\Repository\CategoryRepositoryEloquent;
 
 class CodeCategoryServiceProvider extends ServiceProvider
 {
@@ -22,6 +24,7 @@ class CodeCategoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        //$this->app->bind(CategoryRepositoryInterface::class,CategoryRepositoryEloquent::class);
+        $this->app->bind(CategoryRepositoryInterface::class,CategoryRepositoryDoctrine::class);
     }
 }
